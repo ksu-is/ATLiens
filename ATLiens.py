@@ -11,34 +11,34 @@ class hero:
         self.magic = Pmagic
         self.name = Pname
 
-        def getHealth(self):
+    def getHealth(self):
             return self.health
-        def getAttack(self):
+    def getAttack(self):
             return self.attack
-        def getLuck(self):
+    def getLuck(self):
             return self.luck
-        def getRange(self):
+    def getRange(self):
             return self.range
-        def getDefense(self):
+    def getDefense(self):
             return self.defense
-        def getMagic(self):
+    def getMagic(self):
             return self.magic
-        def getName(self):
+    def getName(self):
             return self.name
 
-        def setHealth(self, newHealth):
+    def setHealth(self, newHealth):
             self.health = newHealth
-        def setAttack(self, newAttack):
+    def setAttack(self, newAttack):
             self.attack = newAttack
-        def setLuck(self, newLuck):
+    def setLuck(self, newLuck):
             self.luck = newLuck
-        def setRange(self, newRange):
+    def setRange(self, newRange):
             self.range = newRange
-        def setDefense(self, newDefense):
+    def setDefense(self, newDefense):
             self.defense = newDefense
-        def setMagic(self, newMagic):
+    def setMagic(self, newMagic):
             self.magic = newMagic
-        def setName(self, newName):
+    def setName(self, newName):
             self.name = newName
             
 def createClass():
@@ -82,4 +82,53 @@ class_data = createClass()
 
 character = hero(100, class_data[0], class_data[1], class_data[2], class_data[3], class_data[4], class_data[5], class_data[6])
 pprint(vars(character))
+
+class enemy
+	def __init__ (self, EHealth, EAttack, Especial, Echance, Ename)
+		self.health = EHealth
+		self.attack = EAttack
+		self.special = Especial
+		self.chance = Echance
+		self.name = Ename
+		
+	def getHealth(self):
+		return self.health
+	def getAttack(self):
+		return self.attack		
+	def getSpecial(self):
+		return self.special		
+	def getChance(self):
+		return self.chance		
+	def getName(self):
+		return self.name
+	
+	def setHealth(self, newHealth):
+		self.health = newHealth
+	def setAttack(self, newAttack):
+		self.attack = newAttack
+	def setSpecial(self, newSpecial):
+		self.special = newSpecial
+	def setChance(self, newChance):
+		self.chance = newChance
+	def setName(self, newName):
+		self.name = newName
+	
+class boss (enemy)
+	def __init__(self, EHealth, EAttack, Especial, Echance, Ename, EsuperMove):
+		super().__init__ (EHealth, EAttack, Especial, Echance, Ename)
+		
+		self.superMove = EsuperMove
+		
+		get getSuper(self):
+			return self.superMove
+		get setSuper(self, newSuperMove)
+			self.superMove = newSuperMove
+			
+
+		
+		
+	
+	
+		
+
 	

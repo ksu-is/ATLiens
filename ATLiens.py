@@ -124,9 +124,44 @@ class boss (enemy)
 		get setSuper(self, newSuperMove)
 			self.superMove = newSuperMove
 			
+def enemyGen(levelBoss):
+	temp = []
+	file = open("adjective.txt","r")
+	lines = files.readlines()
+	adjective = lines[random.randint(0,len(lines)-1][:-1]
+	file.close
+	file = open("familynames.txt","r")
+	lines = files.readlines()
+	familynames = lines[random.randint(0,len(lines)-1][:-1]
+	file.close
+	
+	if levelBoss == False:
+		health = random.randint(50,100)
+		attack = random.randint(1,10)
+		special = random.randint(10,20)
+		chance = random.randint(1,10)
 
+		return enemy(health, attack, special, chance, adjective+"  "+familynames)
 		
+	else:
+		health = random.randint(200,100)
+		attack = random.randint(20,40)
+		special = random.randint(50,60)
+		chance = random.randint(1,8)
+		superMove = random.randint(100,200)
 		
+		return boss(health, attack, special, chance, adjective+"  "+familynames, superMove)
+		
+levelBoss = True
+
+en1 = enemyGen(levelBoss)
+en2 = enemyGen(levelBoss)
+en3 = enemyGen(levelBoss)
+
+
+pprint(vars(en1))
+pprint(vars(en2))
+pprint(vars(en3))
 	
 	
 		

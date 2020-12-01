@@ -1,0 +1,5 @@
+Fire Ball, 10,
+Lightning Bolt, 15,
+Ice Storm, 20,
+Spirit Bomb, 25,
+Kamehameha, 30,

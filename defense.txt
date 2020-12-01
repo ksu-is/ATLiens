@@ -1,0 +1,3 @@
+light shield, 10,
+chain mail suit, 15,
+john wick tactical suit, 20,

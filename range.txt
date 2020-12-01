@@ -1,0 +1,3 @@
+lightning staff, 17,
+flame staff, 17,
+blizzard staff, 17,

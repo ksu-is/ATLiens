@@ -1,5 +1,6 @@
 import random
 import time
+import math
 from pprint import pprint
 class hero:
     def __init__(self, Phealth, Pattack, Pluck, Prange, Pdefense, Pmagic, Pname):
@@ -152,18 +153,109 @@ def enemyGen(levelBoss):
 		
 		return boss(health, attack, special, chance, adjective+"  "+familynames, superMove)
 		
-levelBoss = True
+def enemyAttack(hitChance, attackValue, name, defense):
+	print(name, "is winding up for an attack...")
+	hit = random.randint(0,10)	
+	if hitChance >= hit:
+		print("it hits the player!!!")
+		loss = attackValue = defense
+		print("you stagger losing...", loss, "health")
+		return math.ceil(loss)
+	else:
+		print("the enemy misses!")
+		return 0
+		
+def hitChance(luck):
+	hit = random.randint(0,4)
+	if luck < hit: 
+		print("Miss!")
+		return False
+		
+	else:
+		print("The enemy has been hit!")
+		return True
+		
+def isDead(health):
+	if health < 1:
+		return True
+	else 
+		return False
+		
+def loot(luck, genCharacter):
+	lootChance = random.randint(0,4)
+	if luck < lootCHance:
+		print("NO LOOT AWARDED")	
+		
+	else:
+		tableNum = random.randint(0,4)
+		lootTableList = ["defense","items","magic","melee","range"]	
+		itemType = lootTableList[tableNum]
+		file = open(itemType+".txt","r")
+		lines = file.readlines()
+		
+		print("The enemy dropped...")
+		
+		item = random.randint(0,len(lines)-1)
+		
+		itemLine = lines[item]
+		splitItemLine = itemLine.split(",")
+		
+		name = splitItemLine[0]
+		value = int(splitItemLine[1])
+		
+		print(name)
+		
+		if itemType == "attack":
+			genCharacter.setAttack(genCharacter.getAttack()+value)
+			print("Your new attack is...")
+			print(genCharacter.getAttack)
+		
+		elif itemType == "range":
+			genCharacter.setRange(genCharacter.getRange()+value)
+			print("Your new ranged attack is...")
+			print(genCharacter.getRange)
+			
+		elif itemType == "defense":
+			genCharacter.setDefense(genCharacter.getDefense()+value)
+			print("Your new defensize item is...")
+			print(genCharacter.getDefense)
+			
+		elif itemType == "magic":
+			genCharacter.setMagic(genCharacter.getMagic()+value)
+			print("Your new magic attack is...")
+			print(genCharacter.getMagic)
+			
+		else:
+		
+			if splitItemLine[2] == "luck":
+				genCharacter.setLuck(genCharacter.getLuck()+value)
+				print("Your new luck is...")
+				print(genCharacter.getLuck())
+				
+			elif splitItemLine[2] == "health":
+				genCharacter.setHealth(genCharacter.getHealth()+value)
+				print("Your new Health is...")
+				print(genCharacter.getHealth())
+				
 
-en1 = enemyGen(levelBoss)
-en2 = enemyGen(levelBoss)
-en3 = enemyGen(levelBoss)
+genCharacter = hero(100, 10, 11, 12, 1, 14, "Lee!")			
 
+pprint(vars(genCharacter))
 
-pprint(vars(en1))
-pprint(vars(en2))
-pprint(vars(en3))
-	
-	
+loot(100, genCharacter)
+loot(100, genCharacter)
+loot(100, genCharacter)
+loot(100, genCharacter)
+
+pprint(vars(genCharacter))
+			
+			
+			
+			
+		
+		
+
+		
 		
 
 	

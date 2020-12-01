@@ -1,0 +1,8 @@
+rare sword, 10,
+legendary axe, 20,
+epic hammer, 15,
+
+
+
+
+

@@ -306,7 +306,37 @@ def battle(genEnemy, genCharacter):
 				
 				
 			
+def levelGenerator(character, level):
+
+	maxNumberOfEnemies = math.ceil(level*6)
+	for x in range (0, maxNumberOfEnemies):
+		bossChance = random.randint(1,10)
+		if bossChance > 7
+			levelboss = True
 			
+		else:
+			levelboss = False
+			
+		characterDead = battle(enemyGen(levelBoss), character)
+		gameOver(characterDead)
+		
+def main():
+	classData = createClass()
+	character = hero(100, classData[0], classData[1], classData[2], classData[3], classData[4], classData[5])
+	pprint(vars(character))
+	print("Level 1... Midtown")
+	levelGenerator(character, 1)
+	print("Level 2... Smyrna")
+	levelGenerator(character, 2)
+	print("Level 3... Marietta")
+	levelGenerator(character, 3)
+	print("Level 4... Woodstock")
+	levelGenerator(character, 4)
+	print("Level 5... Canton")
+	levelGenerator(character, 5)
+	print("You have escaped Atlanta and the Alien invasion!")
+	pprint(vars(character))
+	
 
 levelBoss = False
 

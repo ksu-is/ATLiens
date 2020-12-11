@@ -237,19 +237,96 @@ def loot(luck, genCharacter):
 				print("Your new Health is...")
 				print(genCharacter.getHealth())
 				
+def gameOver(enemyDead):
+	if enemyDead == True;
+		print("Time to move on to the next city")
+		
+	else:
+		print("You are out of health")
+		print("You were destroyed by the Alien")
+		
+def battle(genEnemy, genCharacter):
+		print("Be careful!  A troglodite Alien has spotted you!)
+		print("Look out! A giant Centariun Alien approaches!")
+		print("Oh no it's an Alpha ATLien!")
+		print(vars(genEnemy))
+		
+		battle = True
+		
+		while battle == True:
+		
+		
+			print("1. Sword Attack\n2. Ranged Attack \n3. Magic Attack")
+			choice = input()
+		
+			while choice != "1" and choice != "2" and choice != "3":
+				print("Uh oh....you have to pick 1, 2 , or 3")
+				print("1. Sword Attack\n2. Ranged Attack \n3. Magic Attack")
+				choice = input()
+				
+			if choice == "1":
+				damage = genCharacter.getAttack()
+			elif choice == "2":
+				damage = genCharacter.getRanged()
+			elif choice == "3":
+				damage = genCharacter.getMagic()
+				
+			print("You attack the Alien!")
+			hit = hitChance(genCharacter.getLuck())
+			
+			if hit = True:
+				genEnemy.setHealth(genEnemy.getHealth() - damage)
+				print("You've damage the Alien!")
+				print("The Alien now only has", genEnemy.getHealth())
+
+			else:
+				print("Your attackd missed the Alien")
+				
+			enemyDead = isDead(genEnemy.getHealth())
+			
+			if enemyDead = False:
+				genCharacter.setHealth(genCharacter.getHealth() - enemyAttack(genEnemy.getChance(), genEnemy.getAttack(), genEnemy.getName, genCharacter.getDefense())))
+			
+				characterDead = isDead(genCharacter.getHealth())
+				
+				if characterDead == True:
+					battle = False
+					return False
+				
+				else
+					print("Your characters remaining health is", genCharacter.getHealth())
+					
+			else:
+				battle = False
+				print("You have defeated the Alien!")
+				print("You received the following loot...")
+				loot(genCharacter.getLuck()), genCharacter)
+				
+				return True
+				
+				
+			
+			
+
+levelBoss = False
 
 genCharacter = hero(100, 10, 11, 12, 1, 14, "Lee!")			
 
 pprint(vars(genCharacter))
 
-loot(100, genCharacter)
-loot(100, genCharacter)
-loot(100, genCharacter)
-loot(100, genCharacter)
+whoDied = battle(enemyGen(levelBoss), genCharacter)
+gameOver(whoDied)
+
+whoDied = battle(enemyGen(levelBoss), genCharacter)
+gameOver(whoDied)
+
+whoDied = battle(enemyGen(levelBoss), genCharacter)
+gameOver(whoDied)
+
 
 pprint(vars(genCharacter))
 			
-			
+		
 			
 			
 		

@@ -1,368 +1,347 @@
+from pprint import pprint
 import random
 import time
 import math
-from pprint import pprint
+
 class hero:
-    def __init__(self, Phealth, Pattack, Pluck, Prange, Pdefense, Pmagic, Pname):
-        self.health = Phealth
-        self.attack = Pattack
-        self.luck = Pluck
-        self.range = Prange
-        self.defense = Pdefense
-        self.magic = Pmagic
-        self.name = Pname
+    def __init__(self, Hhealth, Hattack, Hluck, Hrange, Hdefense, Hmagic, Hname):
+        self.health = Hhealth
+        self.attack = Hattack
+        self.luck = Hluck
+        self.range = Hrange
+        self.defense = Hdefense
+        self.magic = Hmagic
+        self.name = Hname
 
     def getHealth(self):
-            return self.health
+        return self.health
     def getAttack(self):
-            return self.attack
+        return self.attack
     def getLuck(self):
-            return self.luck
-    def getRange(self):
-            return self.range
-    def getDefense(self):
-            return self.defense
+        return self.luck
+    def getrange(self):
+        return self.range
+    def getdefense(self):
+        return self.defense
     def getMagic(self):
-            return self.magic
+        return self.magic
     def getName(self):
-            return self.name
+        return self.name
 
     def setHealth(self, newHealth):
-            self.health = newHealth
+        self.health = newHealth
     def setAttack(self, newAttack):
-            self.attack = newAttack
+        self.attack = newAttack
     def setLuck(self, newLuck):
-            self.luck = newLuck
-    def setRange(self, newRange):
-            self.range = newRange
-    def setDefense(self, newDefense):
-            self.defense = newDefense
+        self.luck = newLuck
+    def setrange(self, newrange):
+        self.range = newrange
+    def setdefense(self, newdefense):
+        self.defense = newdefense
     def setMagic(self, newMagic):
-            self.magic = newMagic
+        self.magic = newMagic
     def setName(self, newName):
-            self.name = newName
-            
+        self.name = newName
+
+
+class enemy:
+    def __init__(self, Ehealth, Eattack, Especial, Echance, Ename):
+        self.health = Ehealth
+        self.attack = Eattack
+        self.special = Especial
+        self.chance = Echance
+        self.name = Ename
+
+    def getHealth(self):
+        return self.health
+    def getAttack(self):
+        return self.attack
+    def getSpecial (self):
+        return self.special
+    def getChance(self):
+        return self.chance
+    def getName(self):
+        return self.name
+
+    def setHealth(self, newHealth):
+        self.health = newHealth
+    def setAttack(self, newAttack):
+        self.attack = newAttack
+    def setSpecial(self, newSpecial):
+        self.special = newSpecial
+    def setChance(self, newChance):
+        self.chance = newChance
+    def setName(self, newName):
+        self.name = newName
+
+
+
+class boss (enemy):
+    def __init__(self, Ehealth, Eattack, Especial, Echance, Ename, EsuperMove):
+        super().__init__(Ehealth, Eattack, Especial, Echance, Ename)
+
+        self.superMove = EsuperMove
+
+    def getSuper(self):
+        return self.superMove
+    
+    def setSuper(self, newSuperMove):
+        self.superMove = newSuperMove
+
 def createClass():
-	a = input("Are you more strategic (press 1) or more of a warrior (press 2)")
-	while a != "1" and a != "2"
-		print("invalid selection")
-            	a = input("Are you more strategic (press 1) or more of a warrior (press 2)...")
+    a = input("An Alien aircraft has appeared over the horizon.  As it approaches, you realizes it's heading directly to Atlanta.  The alien craft hovers over Atlanta.  Aliens of all kinds begin spewing out of the lower deck of the aircraft.  Escape the city limits before it's too late!  Are you more stategic (1) or more of a warrior (2)?...")
+    while a != "1" and a != "2":
+        print("Invalid selection...")
+        a = input("Are you more stategic (1) or more of a warrior (2)?...")
 
-	if a == "1":
-		heroAttack = 50
-		heroDefense = 100
-	elif a == "2"
-		heroAttack = 100
-		heroDefense = 50
+    if a == "1":
+        heroAttack = 5
+        herodefense = 10
 
-	b = input("Press enter to roll a dice...")
-	time.sleep(0.2)
-	print ("rolling dice")
-	heroLuck = random.randint(0,10)
-	print("your hero has", heroLuck, "luck out of 10")
-	
-	c = input("are you more of a bow and arrow user (press 1) or a magic user (press 2)")
-	while c != "1" and c != "2"
-		print("invalid selection")
-		c = input("are you more of a bow and arrow user (press 1) or a magic user (press 2)")
+    elif a == "2":
+        heroAttack = 10
+        herodefense = 5
 
-	if c == "1"
-		heroRanged = 100
-		heroMagic = 50
-		
-	elif c == "2"
-		heroRanged = 50
-		heroMagic = 100
-		
-	heroName = input("What is your name hero")
-	print ("Welcome", heroName, "!!!")
-	
-	return (heroAttack, heroLuck, heroRanged, heroDefense, heroMagic, heroName)
-	
-class_data = createClass()
+    b = input ("Press enter to roll a dice...")
+    time.sleep(0.2)
+    print("rolling dice...")
+    heroLuck = random.randint(0,10)
+    print ("your hero has", heroLuck, "luck out of 10")
 
-character = hero(100, class_data[0], class_data[1], class_data[2], class_data[3], class_data[4], class_data[5], class_data[6])
-pprint(vars(character))
+    c = input ("Are you more of an archer (1) or magic user (2)?...")
+    while c != "1" and c != "2":
+        print("Invalid selection...")
+        c = input ("Are you more of an archer (1) or magic user (2)?...")
 
-class enemy
-	def __init__ (self, EHealth, EAttack, Especial, Echance, Ename)
-		self.health = EHealth
-		self.attack = EAttack
-		self.special = Especial
-		self.chance = Echance
-		self.name = Ename
-		
-	def getHealth(self):
-		return self.health
-	def getAttack(self):
-		return self.attack		
-	def getSpecial(self):
-		return self.special		
-	def getChance(self):
-		return self.chance		
-	def getName(self):
-		return self.name
-	
-	def setHealth(self, newHealth):
-		self.health = newHealth
-	def setAttack(self, newAttack):
-		self.attack = newAttack
-	def setSpecial(self, newSpecial):
-		self.special = newSpecial
-	def setChance(self, newChance):
-		self.chance = newChance
-	def setName(self, newName):
-		self.name = newName
-	
-class boss (enemy)
-	def __init__(self, EHealth, EAttack, Especial, Echance, Ename, EsuperMove):
-		super().__init__ (EHealth, EAttack, Especial, Echance, Ename)
-		
-		self.superMove = EsuperMove
-		
-		get getSuper(self):
-			return self.superMove
-		get setSuper(self, newSuperMove)
-			self.superMove = newSuperMove
-			
+    
+    if a == "1":
+        herorange = 10
+        heroMagic = 5
+
+    elif a == "2":
+        herorange = 5
+        heroMagic = 10
+
+    heroName = input("What is your name hero??")
+    print("Welcome", heroName, "!!!!")
+
+    return(heroAttack, heroLuck, herorange, herodefense, heroMagic, heroName)
+
+
 def enemyGen(levelBoss):
-	temp = []
-	file = open("adjective.txt","r")
-	lines = files.readlines()
-	adjective = lines[random.randint(0,len(lines)-1][:-1]
-	file.close
-	file = open("familynames.txt","r")
-	lines = files.readlines()
-	familynames = lines[random.randint(0,len(lines)-1][:-1]
-	file.close
-	
-	if levelBoss == False:
-		health = random.randint(50,100)
-		attack = random.randint(1,10)
-		special = random.randint(10,20)
-		chance = random.randint(1,10)
+    temp = []
+    file = open("adjective.txt","r")
+    lines = file.readlines()
+    adjective = lines[random.randint(0,len(lines)-1)][:-1]
+    file.close
+    file = open("aliens.txt","r")
+    lines = file.readlines()
+    aliens = lines[random.randint(0,len(lines)-1)][:-1]
+    file.close
 
-		return enemy(health, attack, special, chance, adjective+"  "+familynames)
-		
-	else:
-		health = random.randint(200,100)
-		attack = random.randint(20,40)
-		special = random.randint(50,60)
-		chance = random.randint(1,8)
-		superMove = random.randint(100,200)
-		
-		return boss(health, attack, special, chance, adjective+"  "+familynames, superMove)
-		
+    if levelBoss == False:
+        health = random.randint(25,50)
+        attack = random.randint(5,7)
+        special = random.randint(5,7)
+        chance = random.randint(1,10)
+
+        return enemy(health, attack, special, chance, adjective+" "+aliens)
+
+    else:
+        health = random.randint(50,55)
+        attack = random.randint(5,7)
+        special = random.randint(10,12)
+        chance = random.randint(1,8)
+        superMove = random.randint(13,15)
+
+        return boss(health, attack, special, chance, adjective+" "+aliens, superMove)
+
 def enemyAttack(hitChance, attackValue, name, defense):
-	print(name, "is winding up for an attack...")
-	hit = random.randint(0,10)	
-	if hitChance >= hit:
-		print("it hits the player!!!")
-		loss = attackValue = defense
-		print("you stagger losing...", loss, "health")
-		return math.ceil(loss)
-	else:
-		print("the enemy misses!")
-		return 0
-		
-def hitChance(luck):
-	hit = random.randint(0,4)
-	if luck < hit: 
-		print("Miss!")
-		return False
-		
-	else:
-		print("The enemy has been hit!")
-		return True
-		
-def isDead(health):
-	if health < 1:
-		return True
-	else 
-		return False
-		
-def loot(luck, genCharacter):
-	lootChance = random.randint(0,4)
-	if luck < lootCHance:
-		print("NO LOOT AWARDED")	
-		
-	else:
-		tableNum = random.randint(0,4)
-		lootTableList = ["defense","items","magic","melee","range"]	
-		itemType = lootTableList[tableNum]
-		file = open(itemType+".txt","r")
-		lines = file.readlines()
-		
-		print("The enemy dropped...")
-		
-		item = random.randint(0,len(lines)-1)
-		
-		itemLine = lines[item]
-		splitItemLine = itemLine.split(",")
-		
-		name = splitItemLine[0]
-		value = int(splitItemLine[1])
-		
-		print(name)
-		
-		if itemType == "attack":
-			genCharacter.setAttack(genCharacter.getAttack()+value)
-			print("Your new attack is...")
-			print(genCharacter.getAttack)
-		
-		elif itemType == "range":
-			genCharacter.setRange(genCharacter.getRange()+value)
-			print("Your new ranged attack is...")
-			print(genCharacter.getRange)
-			
-		elif itemType == "defense":
-			genCharacter.setDefense(genCharacter.getDefense()+value)
-			print("Your new defensize item is...")
-			print(genCharacter.getDefense)
-			
-		elif itemType == "magic":
-			genCharacter.setMagic(genCharacter.getMagic()+value)
-			print("Your new magic attack is...")
-			print(genCharacter.getMagic)
-			
-		else:
-		
-			if splitItemLine[2] == "luck":
-				genCharacter.setLuck(genCharacter.getLuck()+value)
-				print("Your new luck is...")
-				print(genCharacter.getLuck())
-				
-			elif splitItemLine[2] == "health":
-				genCharacter.setHealth(genCharacter.getHealth()+value)
-				print("Your new Health is...")
-				print(genCharacter.getHealth())
-				
-def gameOver(enemyDead):
-	if enemyDead == True;
-		print("Time to move on to the next city")
-		
-	else:
-		print("You are out of health")
-		print("You were destroyed by the Alien")
-		
-def battle(genEnemy, genCharacter):
-		print("Be careful!  A troglodite Alien has spotted you!)
-		print("Look out! A giant Centariun Alien approaches!")
-		print("Oh no it's an Alpha ATLien!")
-		print(vars(genEnemy))
-		
-		battle = True
-		
-		while battle == True:
-		
-		
-			print("1. Sword Attack\n2. Ranged Attack \n3. Magic Attack")
-			choice = input()
-		
-			while choice != "1" and choice != "2" and choice != "3":
-				print("Uh oh....you have to pick 1, 2 , or 3")
-				print("1. Sword Attack\n2. Ranged Attack \n3. Magic Attack")
-				choice = input()
-				
-			if choice == "1":
-				damage = genCharacter.getAttack()
-			elif choice == "2":
-				damage = genCharacter.getRanged()
-			elif choice == "3":
-				damage = genCharacter.getMagic()
-				
-			print("You attack the Alien!")
-			hit = hitChance(genCharacter.getLuck())
-			
-			if hit = True:
-				genEnemy.setHealth(genEnemy.getHealth() - damage)
-				print("You've damage the Alien!")
-				print("The Alien now only has", genEnemy.getHealth())
+    print(name, "is winding up for an attack...")
+    hit = random.randint(0,10)
+    if hitChance >= hit:
+        print("it hits the hero!!!")
+        loss = attackValue - defense
+        print("You stagger losing...", loss, "health")
+        return math.ceil(loss)
+    else:
+        print("The enemy misses!")
+        return 0
 
-			else:
-				print("Your attackd missed the Alien")
-				
-			enemyDead = isDead(genEnemy.getHealth())
-			
-			if enemyDead = False:
-				genCharacter.setHealth(genCharacter.getHealth() - enemyAttack(genEnemy.getChance(), genEnemy.getAttack(), genEnemy.getName, genCharacter.getDefense())))
-			
-				characterDead = isDead(genCharacter.getHealth())
-				
-				if characterDead == True:
-					battle = False
-					return False
-				
-				else
-					print("Your characters remaining health is", genCharacter.getHealth())
-					
-			else:
-				battle = False
-				print("You have defeated the Alien!")
-				print("You received the following loot...")
-				loot(genCharacter.getLuck()), genCharacter)
-				
-				return True
-				
-				
-			
+def hitChance(luck):
+    hit = random.randint(0,4)
+    if luck < hit:
+        print("MISS!")
+        return False
+
+    else:
+        print("You hit the enemy!")
+        return True
+
+def isDead(health):
+    if health < 1:
+        return True
+    else:
+        return False
+
+def loot(luck, genCharacter):
+    lootChance = random.randint(0,4)
+    if luck < lootChance:
+        print("NO LOOT FOR YOU!")
+
+    else:
+        tableNum = random.randint(0,4)
+        lootTableList = ["items","range","defense","magic","attack"]
+        itemType = lootTableList[tableNum]
+        file = open(itemType+".txt","r")
+        lines = file.readlines()
+
+        print("The enemy dropped a....")
+
+        item = random.randint(0,len(lines)-1)
+
+        itemLine = lines[item]
+        splitItemLine = itemLine.split(",")
+
+        name = splitItemLine[0]
+        value = int(splitItemLine[1])
+
+        print(name)
+
+        if itemType == "attack":
+            genCharacter.setAttack(genCharacter.getAttack()+value)
+            print("Your new attack is...")
+            print(genCharacter.getAttack())
+
+        elif itemType == "range":
+            genCharacter.setrange(genCharacter.getrange()+value)
+            print("Your new range Attack is...")
+            print(genCharacter.getrange())
+
+        elif itemType == "defense":
+            genCharacter.setdefense(genCharacter.getdefense()+value)
+            print("Your new attack is...")
+            print(genCharacter.getdefense())
+
+        elif itemType == "magic":
+            genCharacter.setMagic(genCharacter.getMagic()+value)
+            print("Your new Magic attack is...")
+            print(genCharacter.getMagic())
+
+        else:
+            
+            if splitItemLine[2] == "luck":
+                genCharacter.setLuck(genCharacter.getLuck()+value)
+                print("Your new Luck  is...")
+                print(genCharacter.getLuck())
+
+            elif splitItemLine[2] == "health":
+                genCharacter.setHealth(genCharacter.getLuck()+value)
+                print("Your new Health  is...")
+                print(genCharacter.getHealth())
+
+                                     
+def gameOver(enemyDead):
+    if enemyDead == True:
+        print("Time for another battle!!!")
+
+    else:
+        print("You are out health")
+        print("Better luck next time!!")
+        exit()
+
+def battle(genEnemy, genCharacter):
+    print("Whats that coming over the hill?????")
+    print("Its a...", genEnemy.getName(), "Looking for a fight!")
+    print("Check out its stats....")
+    pprint(vars(genEnemy))
+
+    battle = True
+
+    while battle == True:
+        
+        print("1. Sword Attack\n2. range Attack \n3. Magic Attack")
+        choice = input()
+
+        while choice != "1" and choice != "2" and choice != "3":
+            print("OOPS....Only enter 1, 2 or 3...")
+            print("1. Sword Attack\n2. range Attack \n3. Magic Attack")
+            choice = input()
+
+        if choice == "1":
+            damage = genCharacter.getAttack()
+
+        elif choice == "2":
+            damage = genCharacter.getrange()
+
+        else:
+            damage = genCharacter.getMagic()
+
+        print("You wind up for the attack!!!...")
+        hit = hitChance(genCharacter.getLuck())
+
+        if hit == True:
+            genEnemy.setHealth(genEnemy.getHealth() - damage)
+            print("You've hit the enemy!!!")
+            print("The Enemies health is now....", genEnemy.getHealth())
+
+        else:
+            print("Your attack missed!")
+
+        enemyDead = isDead(genEnemy.getHealth())
+
+        if enemyDead == False:
+            genCharacter.setHealth(genCharacter.getHealth() - enemyAttack(genEnemy.getChance(), genEnemy.getAttack(), genEnemy.getName(), genCharacter.getdefense()))
+            
+            characterDead = isDead(genCharacter.getHealth())
+
+            if characterDead == True:
+                battle = False
+                return False
+
+            else:
+                print("Your characters remaining health is....", genCharacter.getHealth())
+
+        else:
+            battle = False
+            print("You have defeated the enemy!")
+            print("Did it drop any loot?.....")
+            loot(genCharacter.getLuck(), genCharacter)
+
+            return True
+
+
 def levelGenerator(character, level):
 
-	maxNumberOfEnemies = math.ceil(level*6)
-	for x in range (0, maxNumberOfEnemies):
-		bossChance = random.randint(1,10)
-		if bossChance > 7
-			levelboss = True
-			
-		else:
-			levelboss = False
-			
-		characterDead = battle(enemyGen(levelBoss), character)
-		gameOver(characterDead)
-		
+    maxNumberOfEnemies = math.ceil(level*5)
+    for x in range(0, maxNumberOfEnemies):
+        bossChance = random.randint(1,10)
+        if bossChance > 7:
+            levelBoss = True
+
+        else:
+            levelBoss = False
+
+        characterDead = battle(enemyGen(levelBoss), character)
+        gameOver(characterDead)
+
+
 def main():
-	classData = createClass()
-	character = hero(100, classData[0], classData[1], classData[2], classData[3], classData[4], classData[5])
-	pprint(vars(character))
-	print("Level 1... Midtown")
-	levelGenerator(character, 1)
-	print("Level 2... Smyrna")
-	levelGenerator(character, 2)
-	print("Level 3... Marietta")
-	levelGenerator(character, 3)
-	print("Level 4... Woodstock")
-	levelGenerator(character, 4)
-	print("Level 5... Canton")
-	levelGenerator(character, 5)
-	print("You have escaped Atlanta and the Alien invasion!")
-	pprint(vars(character))
-	
+    classData = createClass()
+    character = hero(100, classData[0], classData[1], classData[2], classData[3], classData[4], classData[5])
+    pprint(vars(character))
+    print("Level 1...Midtown")
+    levelGenerator(character, 1)
+    print("Level 2...Marietta")
+    levelGenerator(character, 2)
+    print("Level 3...Kennesaw")
+    levelGenerator(character, 3)
+    print("Level 4...Woodstock")
+    levelGenerator(character, 4)
+    print("You've escaped the ALien invastion and have made it to Canton!")
+    pprint(vars(character))
+    
+    
+main()
 
-levelBoss = False
-
-genCharacter = hero(100, 10, 11, 12, 1, 14, "Lee!")			
-
-pprint(vars(genCharacter))
-
-whoDied = battle(enemyGen(levelBoss), genCharacter)
-gameOver(whoDied)
-
-whoDied = battle(enemyGen(levelBoss), genCharacter)
-gameOver(whoDied)
-
-whoDied = battle(enemyGen(levelBoss), genCharacter)
-gameOver(whoDied)
-
-
-pprint(vars(genCharacter))
-			
-		
-			
-			
-		
-		
-
-		
-		
-
-	
+    

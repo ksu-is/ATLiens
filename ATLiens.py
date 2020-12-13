@@ -89,10 +89,10 @@ class boss (enemy):
         self.superMove = newSuperMove
 
 def createClass():
-    a = input("An Alien aircraft has appeared over the horizon.  As it approaches, you realizes it's heading directly to Atlanta.  The alien craft hovers over Atlanta.  Aliens of all kinds begin spewing out of the lower deck of the aircraft.  Escape the city limits before it's too late!  Are you more stategic (1) or more of a warrior (2)?...")
+    a = input("An Alien aircraft has appeared over the horizon...\n2  The clouds start to boil and when the craft breaks through them, you realizes it's heading directly to Atlanta\n2.  The alien craft hovers over Atlanta slowly settling into place. Then... Silence\n2.  Suddenly, aliens begin spewing out of the lower deck of the aircraft\n2.  Slowly it dawns on you that it's time to get out of town.  You must save yourself and escape to North Georgia before it's too late\n2!  Before you begin your journey, please select between a ranged (1) or melee class (2)...")
     while a != "1" and a != "2":
         print("Invalid selection...")
-        a = input("Are you more stategic (1) or more of a warrior (2)?...")
+        a = input("Before you begin your journey, please select between a ranged (1) or melee based class (2)...")
 
     if a == "1":
         heroAttack = 5
@@ -106,7 +106,7 @@ def createClass():
     time.sleep(0.2)
     print("rolling dice...")
     heroLuck = random.randint(0,10)
-    print ("your hero has", heroLuck, "luck out of 10")
+    print ("you have", heroLuck, "luck out of 10")
 
     c = input ("Are you more of an archer (1) or magic user (2)?...")
     while c != "1" and c != "2":
@@ -122,7 +122,7 @@ def createClass():
         herorange = 5
         heroMagic = 10
 
-    heroName = input("What is your name hero??")
+    heroName = input("What is your name player??")
     print("Welcome", heroName, "!!!!")
 
     return(heroAttack, heroLuck, herorange, herodefense, heroMagic, heroName)
@@ -160,12 +160,12 @@ def enemyAttack(hitChance, attackValue, name, defense):
     print(name, "is winding up for an attack...")
     hit = random.randint(0,10)
     if hitChance >= hit:
-        print("it hits the hero!!!")
+        print("The alien has struck you!!!")
         loss = attackValue - defense
         print("You stagger losing...", loss, "health")
         return math.ceil(loss)
     else:
-        print("The enemy misses!")
+        print("The alien misses! It bolsters in frustration")
         return 0
 
 def hitChance(luck):
@@ -175,7 +175,7 @@ def hitChance(luck):
         return False
 
     else:
-        print("You hit the enemy!")
+        print("You hit the alien!")
         return True
 
 def isDead(health):
@@ -196,7 +196,7 @@ def loot(luck, genCharacter):
         file = open(itemType+".txt","r")
         lines = file.readlines()
 
-        print("The enemy dropped a....")
+        print("The alien dropped a....")
 
         item = random.randint(0,len(lines)-1)
 
@@ -243,7 +243,7 @@ def loot(luck, genCharacter):
                                      
 def gameOver(enemyDead):
     if enemyDead == True:
-        print("Time for another battle!!!")
+        print("Oh no!  Another alien appears from the craft!!!")
 
     else:
         print("You are out health")
@@ -251,7 +251,7 @@ def gameOver(enemyDead):
         exit()
 
 def battle(genEnemy, genCharacter):
-    print("Whats that coming over the hill?????")
+    print("You hear an Alien craft land just beyond the ridge ahead.  Over the hill the alien appears.")
     print("Its a...", genEnemy.getName(), "Looking for a fight!")
     print("Check out its stats....")
     pprint(vars(genEnemy))
@@ -260,12 +260,12 @@ def battle(genEnemy, genCharacter):
 
     while battle == True:
         
-        print("1. Sword Attack\n2. range Attack \n3. Magic Attack")
+        print("1. Sword Attack\n2. Range Attack \n3. Magic Attack")
         choice = input()
 
         while choice != "1" and choice != "2" and choice != "3":
             print("OOPS....Only enter 1, 2 or 3...")
-            print("1. Sword Attack\n2. range Attack \n3. Magic Attack")
+            print("1. Sword Attack\n2. Range Attack\n3. Magic Attack")
             choice = input()
 
         if choice == "1":
@@ -282,8 +282,8 @@ def battle(genEnemy, genCharacter):
 
         if hit == True:
             genEnemy.setHealth(genEnemy.getHealth() - damage)
-            print("You've hit the enemy!!!")
-            print("The Enemies health is now....", genEnemy.getHealth())
+            print("You've hit the alien!!!")
+            print("The aliens health is now....", genEnemy.getHealth())
 
         else:
             print("Your attack missed!")
@@ -304,7 +304,7 @@ def battle(genEnemy, genCharacter):
 
         else:
             battle = False
-            print("You have defeated the enemy!")
+            print("You have defeated the alien!")
             print("Did it drop any loot?.....")
             loot(genCharacter.getLuck(), genCharacter)
 

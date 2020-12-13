@@ -3,9 +3,8 @@
 - __[Python 3](https://www.python.org/download/releases/3.0/)__ -
 Program uses Python 3
 
-- __[Random and Time](https://github.com/nodeca/babelfish/)__ - Program
-requires Random and Time Modules
-
+- __[Random, Time, and Math](https://docs.python.org/3/py-modindex.html)__ - Program
+requires Random, Time, and Math Modules.
 
 ---
 
@@ -27,7 +26,6 @@ ___
 ---
 
 ***
-
 
 ## About the Game
 

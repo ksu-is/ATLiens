@@ -14,12 +14,7 @@ requires Random, Time, and Math Modules.
 
 ### Application Overview
 
-Adventure Game.  Atlanta has been invaded by aliens and the player must
-reach safety by escaping the city limits and reaching Canton, GA .   The
-user or “player” will be presented with unique scenarios of which he/she
-must make decisions which affect the story's progression.  Mini games
-and string riddles must be “cleared” in order for the player to progress
-through each checkpoint on there path to safety.
+Adventure Game. Atlanta has been invaded by aliens and the player must reach safety by escaping the city limits and reaching Canton, GA. The user or “player” will be presented with unique alien monsters of which he/she must defeat while making their way out of the city.
 
 ___
 
